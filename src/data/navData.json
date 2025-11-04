@@ -5,18 +5,23 @@
     "children": []
   },
   {
-    "key": "About Us",
+    "key": "Menu",
+    "url": "#",
+    "children": []
+  },
+  {
+    "key": "Catering",
+    "url": "#",
+    "children": []
+  },
+  {
+    "key": "About",
     "url": "/about/",
     "children": []
   },
   {
-    "key": "Reviews",
-    "url": "/reviews/",
-    "children": []
-  },
-  {
-    "key": "Blog",
-    "url": "/blog/",
+    "key": "Find Us",
+    "url": "#",
     "children": []     
   }
 ]
