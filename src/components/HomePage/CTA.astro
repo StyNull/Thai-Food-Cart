@@ -39,68 +39,33 @@
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
   #cta-80 {
-    padding: var(--sectionPadding);
+    padding: 1.6em 2em 2em 2em;
     position: relative;
     z-index: 1;
+    /* Remove background - let page background show through */
+    background-color: transparent;
   }
   #cta-80:before {
-    /* basil green background on mobile */
-    content: "";
-    width: 100%;
-    height: 50%;
-    background: var(--secondary);
-    opacity: 1;
-    position: absolute;
-    display: block;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
+    display: none;
   }
   #cta-80 .cs-stripes {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    pointer-events: none;
-  }
-  #cta-80 .cs-stripes:before {
-    /* Stripe 1 */
-    content: "";
-    width: 8.25rem;
-    height: 68.75rem;
-    background: linear-gradient(to bottom, var(--primaryLight) 0%, rgba(234, 162, 33, 0.3) 100%);
-    opacity: 0.12;
-    transform: rotate(-25deg);
-    position: absolute;
-    display: block;
-    bottom: -9.375rem;
-    left: 50%;
-    margin-left: -18.75rem;
-  }
-  #cta-80 .cs-stripes:after {
-    /* Stripe 2 */
-    content: "";
-    width: 8.25rem;
-    height: 75rem;
-    background: linear-gradient(to bottom, var(--primaryLight) 0%, rgba(234, 162, 33, 0.3) 100%);
-    opacity: 0.12;
-    transform: rotate(-25deg);
-    position: absolute;
-    display: block;
-    bottom: -6.25rem;
-    left: 50%;
-    margin-left: -10.625rem;
+    display: none;
   }
   #cta-80 .cs-container {
+    /* Rounded container with background */
+    background-color: var(--secondary);
+    border-radius: 2rem;
+    padding: 2em;
+    overflow: hidden;
     width: 100%;
-    max-width: 80rem;
+    max-width: none;
     margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: clamp(3rem, 6vw, 4rem);
+    position: relative;
+    z-index: 2;
   }
   #cta-80 .cs-content {
     text-align: center;
@@ -127,6 +92,7 @@
     width: 100%;
     max-width: 20rem;
     margin-bottom: 1.5rem;
+    align-items: center;
   }
   #cta-80 .cs-button-solid {
     font-size: 1rem;
@@ -159,7 +125,9 @@
     border: 2px solid var(--bodyTextColorWhite);
   }
   #cta-80 .cs-button-solid.cs-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: var(--bodyTextColorWhite);
+    border-radius: 14px;
     transform: scale(1.02);
   }
   #cta-80 .cs-micro-trust {
@@ -213,30 +181,19 @@
 @media only screen and (min-width: 48rem) {
   #cta-80 {
     text-align: left;
-    margin-top: clamp(9rem, 9.9vw, 14.0625rem);
-    padding-bottom: 0;
+    margin-top: clamp(6.48rem, 7.128vw, 10.125rem);
+    padding: 1.6em 2em 2em 2em;
     position: relative;
     z-index: 1;
-    background-color: var(--secondary);
-  }
-  #cta-80:before {
-    display: none;
-  }
-  #cta-80 .cs-stripes:before {
-    top: -9.375rem;
-    bottom: auto;
-    margin-left: -7.5rem;
-  }
-  #cta-80 .cs-stripes:after {
-    top: -6.25rem;
-    bottom: auto;
-    margin-left: -15.9375rem;
+    /* Keep transparent - let page background show */
+    background-color: transparent;
   }
   #cta-80 .cs-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     position: relative;
+    padding: 2em;
   }
   #cta-80 .cs-content {
     text-align: left;
@@ -267,15 +224,7 @@
 /* Small Desktop - 1024px */
 @media only screen and (min-width: 64rem) {
   #cta-80 {
-    margin-top: clamp(9rem, 12.9vw, 12.5rem);
-  }
-  #cta-80 .cs-stripes:before {
-    margin-left: -13.75rem;
-    width: 12.1875rem;
-  }
-  #cta-80 .cs-stripes:after {
-    margin-left: -26.875rem;
-    width: 12.125rem;
+    margin-top: clamp(6.48rem, 9.288vw, 9rem);
   }
 }
 </style>
