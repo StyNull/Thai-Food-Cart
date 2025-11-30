@@ -1,18 +1,15 @@
 ---
 import navData from "@data/navData.json";
-import { Icon } from 'astro-icon/components';
 import Logo from "@assets/images/HomePage/logo.png"
 ---
 
 <header id="cs-navigation">
     <div class="cs-container">
-        <!--Nav Logo-->
         <a href="/" class="cs-logo" aria-label="back to home">
             <img src={Logo.src} alt="Esan Thai Food Cart" width="210" height="65" decoding="async">
         </a>
-        <!--Navigation List-->
+        
         <nav class="cs-nav" role="navigation">
-            <!--Mobile Nav Toggle-->
             <button class="cs-toggle" aria-label="mobile menu toggle">
                 <div class="cs-box" aria-hidden="true">
                     <span class="cs-line cs-line1" aria-hidden="true"></span>
@@ -20,63 +17,18 @@ import Logo from "@assets/images/HomePage/logo.png"
                     <span class="cs-line cs-line3" aria-hidden="true"></span>
                 </div>
             </button>
+            
             <div class="cs-ul-wrapper">
                 <ul id="cs-expanded-ul" class="cs-ul">
-                    {navData.map((entry) => (
-                        <li
-                            class:list={[
-                                "cs-li",
-                                { "cs-dropdown": entry.children?.length > 0 },
-                            ]}
-                        >
-                            {entry.children?.length > 0 ? (
-                                <button
-                                    aria-expanded="false"
-                                    aria-controls={`submenu-${entry.key}`}
-                                    class:list={[
-                                        "cs-li-link cs-dropdown-button",
-                                        { "cs-active": Astro.url.pathname.includes(entry.url)},
-                                    ]}
-                                >
-                                    {entry.key}
-                                    <Icon name="mdi--caret" class="cs-drop-icon" />
-                                </button>
-                            ) : (
-                                
-                                    href={entry.url}
-                                    class:list={[
-                                        "cs-li-link",
-                                        { "cs-active": entry.url.startsWith("/#") 
-                                            ? false 
-                                            : Astro.url.pathname === entry.url 
-                                        },
-                                    ]}
-                                    aria-current={Astro.url.pathname === entry.url ? "page" : undefined}
-                                >
-                                    {entry.key}
-                                </a>
-                            )}
-                            
-                            {entry.children?.length > 0 && (
-                                <ul id={`submenu-${entry.key}`} class="cs-drop-ul">
-                                    {entry.children.map((child) => (
-                                        <li class="cs-drop-li">
-                                            <a 
-                                                href={child.url} 
-                                                class="cs-li-link cs-drop-link"
-                                                aria-current={Astro.url.pathname === child.url ? "page" : undefined}
-                                            >
-                                                {child.key}
-                                            </a>
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
+                    {navData.map((entry: { key: string; url: string }) => (
+                        <li class="cs-li">
+                            <a href={entry.url} class="cs-li-link">{entry.key}</a>
                         </li>
                     ))}
                 </ul>
             </div>
         </nav>
+        
         <div class="cs-contact-group">
             <a href="tel:+15039330151" class="cs-phone">
                 <svg class="cs-phone-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -90,9 +42,7 @@ import Logo from "@assets/images/HomePage/logo.png"
 </header>
 
 <style>
-/*-- -------------------------- -->
-<---     Mobile Navigation      -->
-<--- -------------------------- -*/
+/* Mobile */
 @media only screen and (max-width: 63.9375rem) {
     body.cs-open {
         overflow: hidden;
@@ -102,14 +52,7 @@ import Logo from "@assets/images/HomePage/logo.png"
         width: 100%;
         max-width: 100%;
         top: 0;
-    }
-    
-    body.scroll #cs-navigation:before {
         border-radius: 0;
-    }
-    
-    body.scroll #cs-navigation .cs-ul-wrapper {
-        top: 100%;
     }
     
     #cs-navigation {
@@ -118,41 +61,18 @@ import Logo from "@assets/images/HomePage/logo.png"
         box-sizing: border-box;
         padding: clamp(0.75rem, 2vw, 1.5rem);
         border-radius: clamp(0.75rem, 2vw, 1.5rem);
+        background: var(--surfaceColor, #fff);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
         position: fixed;
         top: 1rem;
         left: 50%;
         z-index: 10000;
         transform: translateX(-50%);
-        transition: top 0.3s, border-radius 0.3s, width 0.3s, max-width 0.3s;
-    }
-    
-    #cs-navigation:before {
-        content: "";
-        width: 100%;
-        height: 100%;
-        background: var(--surfaceColor, #fff);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-        opacity: 1;
-        border-radius: clamp(0.75rem, 2vw, 1.5rem);
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        transition: transform 0.2s, border-radius 0.3s ease-in-out;
-    }
-    
-    #cs-navigation.cs-active:before {
-        transform: translateX(-50%) scale(1.03);
-    }
-    
-    #cs-navigation.cs-active .cs-toggle {
-        transform: rotate(180deg);
+        transition: top 0.3s, border-radius 0.3s, width 0.3s;
     }
     
     #cs-navigation.cs-active .cs-ul-wrapper {
         transform: scaleY(1);
-        transition-delay: 0.15s;
     }
     
     #cs-navigation.cs-active .cs-li {
@@ -165,19 +85,16 @@ import Logo from "@assets/images/HomePage/logo.png"
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        gap: 1.5rem;
+        gap: 1rem;
     }
     
     #cs-navigation .cs-logo {
         width: auto;
-        max-width: 10rem;
-        height: 3rem;
+        max-width: 8rem;
+        height: 2.5rem;
         margin: 0 auto 0 0;
-        padding: 0;
         display: flex;
-        justify-content: flex-start;
         align-items: center;
-        z-index: 10;
     }
     
     #cs-navigation .cs-logo img {
@@ -187,46 +104,19 @@ import Logo from "@assets/images/HomePage/logo.png"
     }
     
     #cs-navigation .cs-toggle {
-        width: 3rem;
-        height: 3rem;
-        margin: 0;
+        width: 2.75rem;
+        height: 2.75rem;
         background-color: var(--primary);
         border: none;
         border-radius: 0.5rem;
         display: flex;
         justify-content: center;
         align-items: center;
-        position: relative;
-        z-index: 10;
-        transition: transform 0.6s;
-    }
-    
-    #cs-navigation .cs-nav {
-        order: 3;
-    }
-    
-    #cs-navigation .cs-contact-group {
-        display: none;
-    }
-    
-    #cs-navigation .cs-active .cs-line1 {
-        top: 50%;
-        transform: translate(-50%, -50%) rotate(225deg);
-    }
-    
-    #cs-navigation .cs-active .cs-line2 {
-        top: 50%;
-        transform: translate(-50%, -50%) translateY(0) rotate(-225deg);
-        transform-origin: center;
-    }
-    
-    #cs-navigation .cs-active .cs-line3 {
-        opacity: 0;
-        bottom: 100%;
+        cursor: pointer;
     }
     
     #cs-navigation .cs-box {
-        width: clamp(1.25rem, 2vw, 1.5rem);
+        width: 1.25rem;
         height: 0.875rem;
         position: relative;
     }
@@ -239,100 +129,77 @@ import Logo from "@assets/images/HomePage/logo.png"
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
+        transition: all 0.3s;
     }
     
-    #cs-navigation .cs-line1 {
-        top: 0;
-        transition: transform 0.5s, top 0.3s, left 0.3s;
-        transform-origin: center;
-    }
+    #cs-navigation .cs-line1 { top: 0; }
+    #cs-navigation .cs-line2 { top: 50%; transform: translateX(-50%) translateY(-50%); }
+    #cs-navigation .cs-line3 { bottom: 0; }
     
-    #cs-navigation .cs-line2 {
+    #cs-navigation.cs-active .cs-line1 {
         top: 50%;
-        transform: translateX(-50%) translateY(-50%);
-        transition: top 0.3s, left 0.3s, transform 0.5s;
+        transform: translate(-50%, -50%) rotate(45deg);
     }
     
-    #cs-navigation .cs-line3 {
-        bottom: 0;
-        transition: bottom 0.3s, opacity 0.3s;
+    #cs-navigation.cs-active .cs-line2 {
+        opacity: 0;
+    }
+    
+    #cs-navigation.cs-active .cs-line3 {
+        bottom: 50%;
+        transform: translate(-50%, 50%) rotate(-45deg);
     }
     
     #cs-navigation .cs-ul-wrapper {
         width: 100%;
-        height: auto;
-        padding-bottom: 2rem;
         background-color: var(--surfaceColor, #fff);
-        border-radius: 0 0 1.5rem 1.5rem;
+        border-radius: 0 0 1rem 1rem;
         position: absolute;
-        top: 85%;
+        top: 100%;
         left: 0;
         z-index: -1;
         overflow: hidden;
         transform: scaleY(0);
-        transition: transform 0.4s;
         transform-origin: top;
+        transition: transform 0.3s;
     }
     
     #cs-navigation .cs-ul {
         width: 100%;
-        height: auto;
-        max-height: 65vh;
         margin: 0;
-        padding: 3rem 0 0 0;
+        padding: 1.5rem 0;
+        list-style: none;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
         align-items: center;
         gap: 1.25rem;
-        overflow: scroll;
     }
     
     #cs-navigation .cs-li {
-        text-align: center;
-        list-style: none;
-        width: 100%;
-        margin-right: 0;
         opacity: 0;
-        transform: translateY(-1rem);
-        transition: transform 0.6s, opacity 0.9s;
+        transform: translateY(-0.5rem);
+        transition: opacity 0.3s, transform 0.3s;
     }
     
     #cs-navigation .cs-li:nth-of-type(1) { transition-delay: 0.05s; }
     #cs-navigation .cs-li:nth-of-type(2) { transition-delay: 0.1s; }
     #cs-navigation .cs-li:nth-of-type(3) { transition-delay: 0.15s; }
     #cs-navigation .cs-li:nth-of-type(4) { transition-delay: 0.2s; }
-    #cs-navigation .cs-li:nth-of-type(5) { transition-delay: 0.25s; }
     
     #cs-navigation .cs-li-link {
-        font-size: clamp(1rem, 2.5vw, 1.25rem);
+        font-size: 1.125rem;
         font-weight: 600;
-        line-height: 1.2em;
         text-decoration: none;
-        margin: 0;
         color: var(--headerColor);
-        display: inline-block;
-        position: relative;
-    }
-    
-    #cs-navigation .cs-li-link.cs-active {
-        color: var(--primary);
+        transition: color 0.3s;
     }
     
     #cs-navigation .cs-li-link:hover {
         color: var(--primary);
     }
     
-    /* Mobile CTA at bottom of menu */
-    #cs-navigation .cs-ul::after {
-        content: "Call to Order";
-        font-size: 1rem;
-        font-weight: 700;
-        color: var(--bodyTextColorWhite);
-        background-color: var(--primary);
-        padding: 0.875rem 1.5rem;
-        border-radius: 0.5rem;
-        margin-top: 1rem;
+    #cs-navigation .cs-contact-group {
+        display: none;
     }
 }
 
@@ -341,8 +208,6 @@ import Logo from "@assets/images/HomePage/logo.png"
     #cs-navigation .cs-contact-group {
         display: flex;
         align-items: center;
-        position: relative;
-        z-index: 10;
     }
     
     #cs-navigation .cs-phone {
@@ -363,47 +228,36 @@ import Logo from "@assets/images/HomePage/logo.png"
     #cs-navigation .cs-button-solid {
         display: none;
     }
-    
-    #cs-navigation .cs-ul::after {
-        display: none;
-    }
 }
 
-/*-- -------------------------- -->
-<---     Desktop Navigation     -->
-<--- -------------------------- -*/
+/* Desktop */
 @media only screen and (min-width: 64rem) {
     body.scroll #cs-navigation {
         width: 100%;
         max-width: 100%;
-        border-radius: 0;
         top: 0;
+        border-radius: 0;
     }
     
     #cs-navigation {
         width: 94%;
         max-width: 90rem;
-        height: auto;
-        box-sizing: border-box;
         padding: 1rem 0;
         background-color: var(--surfaceColor, #fff);
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
         border-radius: clamp(0.75rem, 2vw, 1.5rem);
-        display: flex;
-        align-items: center;
         position: fixed;
         top: 1.5rem;
         left: 50%;
         z-index: 10000;
         transform: translateX(-50%);
-        transition: top 0.3s, border-radius 0.3s, width 0.3s, max-width 0.3s;
+        transition: top 0.3s, border-radius 0.3s, width 0.3s;
     }
     
     #cs-navigation .cs-container {
         width: 100%;
         max-width: 90rem;
         margin: auto;
-        box-sizing: border-box;
         padding: 0 1.5rem;
         display: flex;
         justify-content: space-between;
@@ -419,12 +273,8 @@ import Logo from "@assets/images/HomePage/logo.png"
         width: auto;
         max-width: 12rem;
         height: 3.5rem;
-        margin: 0;
-        padding: 0;
         display: flex;
-        justify-content: flex-start;
         align-items: center;
-        z-index: 100;
     }
     
     #cs-navigation .cs-logo img {
@@ -434,40 +284,29 @@ import Logo from "@assets/images/HomePage/logo.png"
     }
     
     #cs-navigation .cs-ul-wrapper {
-        height: 100%;
         display: flex;
         align-items: center;
     }
     
     #cs-navigation .cs-ul {
-        width: 100%;
-        height: 100%;
         margin: 0;
         padding: 0;
+        list-style: none;
         display: flex;
-        justify-content: flex-start;
         align-items: center;
         gap: clamp(1.25rem, 2.5vw, 2rem);
     }
     
     #cs-navigation .cs-li {
-        list-style: none;
-        height: 100%;
-        padding: 0;
         display: flex;
         align-items: center;
-        flex: none;
     }
     
     #cs-navigation .cs-li-link {
         font-size: 1rem;
         font-weight: 600;
-        line-height: 1.5em;
         text-decoration: none;
-        margin: 0;
         color: var(--headerColor);
-        display: block;
-        position: relative;
         transition: color 0.3s;
     }
     
@@ -475,13 +314,8 @@ import Logo from "@assets/images/HomePage/logo.png"
         color: var(--primary);
     }
     
-    #cs-navigation .cs-li-link.cs-active {
-        color: var(--primary);
-    }
-    
     #cs-navigation .cs-contact-group {
         display: flex;
-        justify-content: center;
         align-items: center;
         gap: 1.5rem;
     }
@@ -489,11 +323,9 @@ import Logo from "@assets/images/HomePage/logo.png"
     #cs-navigation .cs-phone {
         font-size: 0.9375rem;
         font-weight: 600;
-        line-height: 1.5em;
         text-decoration: none;
         color: var(--headerColor);
         display: flex;
-        justify-content: flex-start;
         align-items: center;
         gap: 0.5rem;
         transition: color 0.3s;
@@ -513,27 +345,17 @@ import Logo from "@assets/images/HomePage/logo.png"
         font-size: 0.9375rem;
         font-weight: 700;
         line-height: 1;
-        text-align: center;
         text-decoration: none;
-        padding: 0.875rem 1.5rem;
         color: var(--bodyTextColorWhite);
         background-color: var(--primary);
+        padding: 0.875rem 1.5rem;
         border-radius: 0.5rem;
-        display: inline-block;
         transition: background-color 0.2s, transform 0.15s;
     }
     
     #cs-navigation .cs-button-solid:hover {
         background-color: var(--primaryLight);
         transform: scale(1.02);
-    }
-}
-
-/* Large Desktop */
-@media only screen and (min-width: 81.25rem) {
-    #cs-navigation .cs-logo {
-        max-width: 14rem;
-        height: 4rem;
     }
 }
 </style>
