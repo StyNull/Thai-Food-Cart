@@ -85,6 +85,58 @@ const { description, title, preloadedImage } = Astro.props as Props;
 
             <!-- Sitewide Scripts -->
             <script src="@js/nav.js"></script>
+            <!-- Schema Markup -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FoodEstablishment",
+  "@id": `https://${client.domain}/#business`,
+  "name": client.name,
+  "image": `https://${client.domain}/assets/images/logo.png`,
+  "url": `https://${client.domain}`,
+  "telephone": "+1-503-933-0151",
+  "priceRange": "$$",
+  "servesCuisine": ["Thai", "Esan Thai", "Asian"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2315 Main St",
+    "addressLocality": "Vancouver",
+    "addressRegion": "WA",
+    "postalCode": "98660",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 45.6387,
+    "longitude": -122.6731
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "15:00",
+      "closes": "21:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "12:00",
+      "closes": "21:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Sunday",
+      "opens": "12:00",
+      "closes": "19:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.yelp.com/biz/esan-thai-food-cart-vancouver"
+  ],
+  "menu": `https://${client.domain}/menu/`,
+  "acceptsReservations": "false",
+  "currenciesAccepted": "USD",
+  "paymentAccepted": "Cash, Credit Card"
+})} />
         </head>
         <body>
             <!-- Screen reader skip main nav -->

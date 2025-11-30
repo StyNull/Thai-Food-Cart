@@ -6,7 +6,7 @@
   },
   {
     "key": "Menu",
-    "url": "#",
+    "url": "/menu",
     "children": []
   },
   {
@@ -16,12 +16,7 @@
   },
   {
     "key": "About",
-    "url": "/about/",
+    "url": "/#about-us/",
     "children": []
-  },
-  {
-    "key": "Find Us",
-    "url": "#",
-    "children": []     
   }
 ]

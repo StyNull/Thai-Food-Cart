@@ -1,0 +1,388 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro"
+
+// Menu Data
+const appetizers = [
+  { num: "A1", name: "Eggrolls", price: "6.50" },
+  { num: "A2", name: "Salad Rolls", price: "6.50" },
+  { num: "A6", name: "Satay", price: "8.95" },
+  { num: "A8", name: "Crab Cream Puff", price: "7.50" },
+  { num: "", name: "Potsticker", price: "8.00" }
+]
+
+const soups = [
+  { num: "11", name: "Tom Yum", desc: "Hot & sour soup", price: "14.75" },
+  { num: "12", name: "Tom Kha", desc: "Coconut soup", price: "14.75" }
+]
+
+const salads = [
+  { num: "21", name: "Thai Beef Salad", price: "15.95" }
+]
+
+const noodles = [
+  { num: "", name: "Pad Thai", price: "14.75" },
+  { num: "61", name: "Pad Kee Mao", desc: "Drunken Noodles", price: "14.75" },
+  { num: "62", name: "Pad See Ew", price: "14.75" },
+  { num: "63", name: "Pad Woon Sen", desc: "Glass Noodles", price: "14.75" },
+  { num: "65", name: "Pad Gai", price: "14.75" },
+  { num: "", name: "Yakisoba", price: "14.75" }
+]
+
+const friedRice = [
+  { num: "67", name: "Fried Rice", price: "14.75" },
+  { num: "68", name: "Basil Fried Rice", price: "14.95" },
+  { num: "70", name: "Pineapple Fried Rice", price: "14.75" }
+]
+
+const curries = [
+  { num: "40", name: "Red Curry", desc: "Gang Dang", price: "14.75" },
+  { num: "41", name: "Green Curry", price: "14.95" },
+  { num: "42", name: "Yellow Curry", price: "14.75" },
+  { num: "43", name: "Panang Curry", price: "14.95" },
+  { num: "44", name: "Massaman Curry", price: "14.75" },
+  { num: "45", name: "Evil Prince", desc: "Red curry with basil", price: "14.75" },
+  { num: "46", name: "Pumpkin Curry", price: "14.75" }
+]
+
+const stirFry = [
+  { num: "27", name: "Pad Prik Khing", desc: "Red curry paste stir fry", price: "14.75" },
+  { num: "29", name: "Pad Mmoung", price: "14.75" },
+  { num: "30", name: "Pad Priewwan", desc: "Sweet & sour", price: "14.75" },
+  { num: "31", name: "Swimming Angel", price: "14.75" },
+  { num: "32", name: "Pad Himmaparn", desc: "Cashew stir fry", price: "14.75" },
+  { num: "33", name: "Pad Gratiem", desc: "Garlic pepper", price: "14.75" },
+  { num: "34", name: "Pad Roam Mit", desc: "Mixed vegetables", price: "14.75" },
+  { num: "36", name: "Pad Khing", desc: "Ginger stir fry", price: "14.75" },
+  { num: "37", name: "Pad Phet", desc: "Spicy basil", price: "14.75" },
+  { num: "38", name: "Pad Gaproa", desc: "Holy basil", price: "14.75" }
+]
+
+const specialty = [
+  { num: "58", name: "Thai Chicken BBQ", price: "16.00" }
+]
+
+const drinks = [
+  { name: "Thai Tea", price: "4.00" },
+  { name: "Thai Coffee", price: "4.00" },
+  { name: "Coconut Juice", price: "3.95" },
+  { name: "Mango Juice", price: "3.50" },
+  { name: "Soda", price: "2.50" },
+  { name: "Water", price: "2.50" }
+]
+
+const sides = [
+  { name: "Rice", price: "3.00" },
+  { name: "Extra Chicken", price: "2.25" },
+  { name: "Extra Shrimp", price: "3.50" },
+  { name: "Extra Noodles", price: "2.25" },
+  { name: "Extra Veggies", price: "2.25" },
+  { name: "Peanut Sauce", price: "1.50" },
+  { name: "Chili Sauce", price: "5.00" }
+]
+
+const menuSections = [
+  { id: "appetizers", title: "Appetizers", items: appetizers },
+  { id: "soups", title: "Soups", items: soups },
+  { id: "salads", title: "Salads", items: salads },
+  { id: "noodles", title: "Noodles", items: noodles },
+  { id: "fried-rice", title: "Fried Rice", items: friedRice },
+  { id: "curries", title: "Curries", items: curries },
+  { id: "stir-fry", title: "Stir Fry", items: stirFry },
+  { id: "specialty", title: "Specialty", items: specialty },
+  { id: "drinks", title: "Drinks", items: drinks },
+  { id: "sides", title: "Sides & Extras", items: sides }
+]
+---
+
+<BaseLayout
+  title="Menu | Esan Thai Food Cart"
+  description="Full menu for Esan Thai Food Cart in Vancouver, WA. Authentic Thai noodles, curries, fried rice, and more. Call ahead to order."
+>
+  <!-- Menu Header -->
+  <section id="menu-header">
+    <div class="cs-container">
+      <h1 class="cs-title">Our Menu</h1>
+      <p class="cs-text">
+        All dishes made fresh to order. Choose your protein: chicken, pork, beef, tofu, or shrimp (+$2).
+        <br>Spice level: mild, medium, hot, or Thai hot.
+      </p>
+      <a href="tel:+15039330151" class="cs-phone">Call to Pre-Order: (503) 933-0151</a>
+    </div>
+  </section>
+
+  <!-- Jump Links -->
+  <nav id="menu-nav" aria-label="Menu categories">
+    <div class="cs-container">
+      {menuSections.map((section) => (
+        <a href={`#${section.id}`} class="cs-nav-link">{section.title}</a>
+      ))}
+    </div>
+  </nav>
+
+  <!-- Menu Sections -->
+  <section id="menu-content">
+    <div class="cs-container">
+      {menuSections.map((section) => (
+        <div id={section.id} class="cs-section">
+          <h2 class="cs-section-title">{section.title}</h2>
+          <ul class="cs-item-list">
+            {section.items.map((item) => (
+              <li class="cs-item">
+                <div class="cs-item-info">
+                  {item.num && <span class="cs-num">#{item.num}</span>}
+                  <span class="cs-name">{item.name}</span>
+                  {item.desc && <span class="cs-desc">{item.desc}</span>}
+                </div>
+                <span class="cs-price">${item.price}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Menu CTA -->
+  <section id="menu-cta">
+    <div class="cs-container">
+      <p class="cs-note">Prices subject to change. Cash and card accepted.</p>
+      <a href="https://maps.google.com?q=2315+Main+St+Vancouver+WA+98660" target="_blank" rel="noopener" class="cs-button-solid">Get Directions</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+/* Menu Header */
+#menu-header {
+  background-color: var(--backgroundColor);
+  padding: clamp(6rem, 10vw, 9rem) 1rem clamp(2rem, 4vw, 3rem);
+}
+
+#menu-header .cs-container {
+  max-width: 70rem;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+#menu-header .cs-title {
+  margin: 0;
+}
+
+#menu-header .cs-text {
+  margin: 0;
+  max-width: 50ch;
+  line-height: 1.6;
+  color: var(--bodyTextColor);
+}
+
+#menu-header .cs-phone {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+#menu-header .cs-phone:hover {
+  color: var(--primaryLight);
+}
+
+/* Jump Links Nav */
+#menu-nav {
+  background-color: var(--surfaceColor);
+  border-top: 1px solid var(--borderColor);
+  border-bottom: 1px solid var(--borderColor);
+  position: sticky;
+  top: 4rem; /* Adjust based on your header height */
+  z-index: 100;
+  padding: 0.75rem 1rem;
+}
+
+#menu-nav .cs-container {
+  max-width: 70rem;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1rem;
+}
+
+#menu-nav .cs-nav-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--bodyTextColor);
+  text-decoration: none;
+  padding: 0.375rem 0.75rem;
+  border-radius: 2rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+#menu-nav .cs-nav-link:hover {
+  background-color: var(--primary);
+  color: var(--bodyTextColorWhite);
+}
+
+/* Menu Content */
+#menu-content {
+  background-color: var(--backgroundColor);
+  padding: clamp(2rem, 4vw, 3rem) 1rem;
+}
+
+#menu-content .cs-container {
+  max-width: 70rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+#menu-content .cs-section {
+  background: var(--surfaceColor);
+  border: 1px solid var(--borderColor);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px var(--shadowColor);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  scroll-margin-top: 6rem; /* Offset for sticky nav */
+}
+
+#menu-content .cs-section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--headerColor);
+  margin: 0 0 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--primary);
+}
+
+#menu-content .cs-item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+#menu-content .cs-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px dashed var(--borderColor);
+}
+
+#menu-content .cs-item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+#menu-content .cs-item-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.375rem;
+}
+
+#menu-content .cs-num {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+#menu-content .cs-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--headerColor);
+}
+
+#menu-content .cs-desc {
+  font-size: 0.875rem;
+  color: var(--bodyTextColor);
+  opacity: 0.8;
+  width: 100%;
+}
+
+#menu-content .cs-price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--headerColor);
+  white-space: nowrap;
+}
+
+/* Menu CTA */
+#menu-cta {
+  background-color: var(--backgroundColor);
+  padding: clamp(1.5rem, 3vw, 2rem) 1rem clamp(3rem, 6vw, 5rem);
+}
+
+#menu-cta .cs-container {
+  max-width: 70rem;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+#menu-cta .cs-note {
+  font-size: 0.875rem;
+  color: var(--bodyTextColor);
+  opacity: 0.7;
+  margin: 0;
+}
+
+#menu-cta .cs-button-solid {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  color: var(--bodyTextColorWhite);
+  background-color: var(--primary);
+  padding: 1rem 2rem;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, transform 0.15s;
+}
+
+#menu-cta .cs-button-solid:hover {
+  background-color: var(--primaryLight);
+  transform: scale(1.02);
+}
+
+/* Tablet - 2 columns */
+@media (min-width: 48rem) {
+  #menu-content .cs-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Stir Fry spans full width */
+  #menu-content .cs-section:nth-child(7) {
+    grid-column: span 2;
+  }
+
+  #menu-content .cs-section:nth-child(7) .cs-item-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem 2rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 64rem) {
+  #menu-content .cs-container {
+    max-width: 80rem;
+  }
+
+  #menu-nav {
+    top: 5rem; /* Adjust for larger header */
+  }
+}
+</style>
