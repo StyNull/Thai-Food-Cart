@@ -1,335 +1,199 @@
-<!-- ============================================ -->
-<!--                  Services                    -->
-<!-- ============================================ -->
+---
+import { Image } from "astro:assets"
+import PadThai from "@assets/images/HomePage/menuIMG/padThai.webp"
+import PadSeeEw from "@assets/images/HomePage/menuIMG/PadSeeEw.webp"
+import PadKeaMao from "@assets/images/HomePage/menuIMG/PadKeaMao.webp"
+import Yakisoba from "@assets/images/HomePage/menuIMG/Yakisoba.webp"
+import PadWoonSen from "@assets/images/HomePage/menuIMG/PadWoonSen.webp"
+import TomYum from "@assets/images/HomePage/menuIMG/TomYum.webp"
 
-<section id="services-2198">
+const dishes = [
+  {
+    image: PadThai,
+    alt: "Pad Thai noodles with egg and peanuts",
+    name: "Pad Thai",
+    description: "The classic. Rice noodles wok-tossed with egg, bean sprouts, and crushed peanuts in our house tamarind sauce."
+  },
+  {
+    image: PadSeeEw,
+    alt: "Pad See Ew with wide rice noodles and Chinese broccoli",
+    name: "Pad See Ew",
+    description: "Wide rice noodles charred in a hot wok with Chinese broccoli, egg, and sweet soy. Smoky and satisfying."
+  },
+  {
+    image: PadKeaMao,
+    alt: "Spicy Drunken Noodles with Thai basil",
+    name: "Pad Kee Mao",
+    description: "Drunken Noodles. Spicy, garlicky, and loaded with Thai basil. Our most requested dish for heat seekers."
+  },
+  {
+    image: Yakisoba,
+    alt: "Yakisoba stir-fried noodles with vegetables",
+    name: "Yakisoba",
+    description: "Japanese-style stir-fried noodles with a tangy, savory sauce. A crowd favorite with a little sweetness."
+  },
+  {
+    image: PadWoonSen,
+    alt: "Glass noodles stir-fried with vegetables and egg",
+    name: "Pad Woon Sen",
+    description: "Light and silky glass noodles with egg, vegetables, and a delicate savory sauce. Easy to love."
+  },
+  {
+    image: TomYum,
+    alt: "Tom Yum soup with shrimp and mushrooms",
+    name: "Tom Yum",
+    description: "Hot and sour soup with lemongrass, galangal, and lime. Bright, bold, and warming—Thailand's most famous soup."
+  }
+]
+---
+
+<section id="menu-highlights">
     <div class="cs-container">
         <div class="cs-content">
-            <span class="cs-topper">What We Do</span>
-            <h2 class="cs-title">Our Special Services for You</h2>
+            <span class="cs-topper">Fan Favorites</span>
+            <h2 class="cs-title">Signature Dishes</h2>
         </div>                  
         <ul class="cs-card-group">
-            <li class="cs-item">
-                <a href="" class="cs-link">
-                    <picture class="cs-picture">
-                        <!--Mobile Image-->
-                        <source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/wedding1.jpg">
-                        <!--Tablet and above Image-->
-                        <source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/wedding1.jpg">
-                        <img loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/wedding1.jpg" alt="wedding photography" width="413" height="340">
-                    </picture>
-                    <div class="cs-flex">
-                        <h3 class="cs-h3">Pre-Wedding Shoot</h3>
-                        
+            {dishes.map((dish) => (
+                <li class="cs-item">
+                    <div class="cs-link">
+                        <Image 
+                            src={dish.image} 
+                            alt={dish.alt}
+                            width={413}
+                            height={340}
+                            loading="lazy"
+                            decoding="async"
+                            class="cs-picture"
+                        />
+                        <h3 class="cs-h3">{dish.name}</h3>
+                        <p class="cs-item-text">{dish.description}</p>
                     </div>
-                    <p class="cs-item-text">
-                        Choose from our range of Photo booth options, including open-air to suit your wedding theme and style.
-                    </p>
-                </a>
-            </li>
-            <li class="cs-item">
-                <a href="" class="cs-link">
-                    <picture class="cs-picture">
-                        <!--Mobile Image-->
-                        <source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/wedding2.jpg">
-                        <!--Tablet and above Image-->
-                        <source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/wedding2.jpg">
-                        <img loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/wedding2.jpg" alt="wedding photography" width="413" height="340">
-                    </picture>
-                    <div class="cs-flex">
-                        <h3 class="cs-h3">Wedding Photoshoot</h3>
-                        
-                    </div>
-                    <p class="cs-item-text">
-                        Choose from our range of Photo booth options, including open-air to suit your wedding theme and style.
-                    </p>
-                </a>
-            </li>
-            <li class="cs-item">
-                <a href="" class="cs-link">
-                    <picture class="cs-picture">
-                        <!--Mobile Image-->
-                        <source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/photography1.jpg">
-                        <!--Tablet and above Image-->
-                        <source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/photography1.jpg">
-                        <img loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/photography1.jpg" alt="wedding photography" width="413" height="340">
-                    </picture>
-                    <div class="cs-flex">
-                        <h3 class="cs-h3">Portrait Photography</h3>
-                        
-                    </div>
-                    <p class="cs-item-text">
-                        Choose from our range of Photo booth options, including open-air to suit your wedding theme and style.
-                    </p>
-                </a>
-            </li>
-        </ul>
-        <ul class="cs-card-group">
-            <li class="cs-item">
-                <a href="" class="cs-link">
-                    <picture class="cs-picture">
-                        <!--Mobile Image-->
-                        <source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/wedding1.jpg">
-                        <!--Tablet and above Image-->
-                        <source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/wedding1.jpg">
-                        <img loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/wedding1.jpg" alt="wedding photography" width="413" height="340">
-                    </picture>
-                    <div class="cs-flex">
-                        <h3 class="cs-h3">Pre-Wedding Shoot</h3>
-                        
-                    </div>
-                    <p class="cs-item-text">
-                        Choose from our range of Photo booth options, including open-air to suit your wedding theme and style.
-                    </p>
-                </a>
-            </li>
-            <li class="cs-item">
-                <a href="" class="cs-link">
-                    <picture class="cs-picture">
-                        <!--Mobile Image-->
-                        <source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/wedding2.jpg">
-                        <!--Tablet and above Image-->
-                        <source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/wedding2.jpg">
-                        <img loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/wedding2.jpg" alt="wedding photography" width="413" height="340">
-                    </picture>
-                    <div class="cs-flex">
-                        <h3 class="cs-h3">Wedding Photoshoot</h3>
-                       
-                    </div>
-                    <p class="cs-item-text">
-                        Choose from our range of Photo booth options, including open-air to suit your wedding theme and style.
-                    </p>
-                </a>
-            </li>
-            <li class="cs-item">
-                <a href="" class="cs-link">
-                    <picture class="cs-picture">
-                        <!--Mobile Image-->
-                        <source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/photography1.jpg">
-                        <!--Tablet and above Image-->
-                        <source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/photography1.jpg">
-                        <img loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/photography1.jpg" alt="wedding photography" width="413" height="340">
-                    </picture>
-                    <div class="cs-flex">
-                        <h3 class="cs-h3">Portrait Photography</h3>
-                        
-                    </div>
-                    <p class="cs-item-text">
-                        Choose from our range of Photo booth options, including open-air to suit your wedding theme and style.
-                    </p>
-                </a>
-            </li>
+                </li>
+            ))}
         </ul>
         <div class="cs-cta">
-        <a href="#full-menu" class="cs-button-solid">View Full Menu</a>
-</div>
+            <a href="#full-menu" class="cs-button-solid">View Full Menu</a>
+        </div>
     </div>
 </section>
-                                
 
 <style>
-/*-- -------------------------- -->
-<---          Services          -->
-<--- -------------------------- -*/
-/* Mobile - 360px */
-@media only screen and (min-width: 0rem) {
-  #services-2198 {
+#menu-highlights {
     background-color: var(--backgroundColor); 
-    position: relative;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-  #services-2198 .cs-container {
+    padding: clamp(3rem, 8vw, 5rem) 0;
+}
+
+#menu-highlights .cs-container {
     width: 100%;
-    max-width: 44rem;
-    margin: auto;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 3vw, 2rem);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: clamp(3rem, 6vw, 4rem);
-    /* Add horizontal padding */
-    padding-left: clamp(1rem, 2vw, 1.5rem);
-    padding-right: clamp(1rem, 2vw, 1.5rem);
-  }
-  #services-2198 .cs-content {
+    gap: clamp(2rem, 5vw, 3rem);
+}
+
+#menu-highlights .cs-content {
     text-align: left;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  #services-2198 .cs-title {
+}
+
+#menu-highlights .cs-title {
     margin: 0;
-  }
-  #services-2198 .cs-card-group {
-    width: 100%;
-    max-width: 25rem;
+}
+
+#menu-highlights .cs-card-group {
+    list-style: none;
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    row-gap: 2rem;
-  }
-  #services-2198 .cs-item {
-    list-style: none;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    grid-column: span 12;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+#menu-highlights .cs-item {
     background: var(--surfaceColor);
     border: 1px solid var(--borderColor);
     border-radius: 16px;
     box-shadow: 0 8px 24px var(--shadowColor);
-    padding: 1.25rem;
-    overflow: hidden; 
-  }
-  #services-2198 .cs-item:hover .cs-picture:before {
-    background-color: transparent;
-  }
-  #services-2198 .cs-item:hover .cs-picture img {
-    opacity: 1;
-  }
-  #services-2198 .cs-link {
-    text-align: center;
-    text-decoration: none;
-    width: 100%;
-    height: 100%;
+    overflow: hidden;
+}
+
+#menu-highlights .cs-link {
     display: flex;
     flex-direction: column;
-    align-items: center;
-  }
-
-  #services-2198 .cs-cta {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: clamp(2rem, 5vw, 3.5rem);
-  }
-
-#services-2198 .cs-button-solid {
-  background-color: var(--primary);
-  color: var(--bodyTextColorWhite);
-  font-weight: 700;
-  text-decoration: none;
-  padding: 0.15rem 2rem;
-  border-radius: 14px;
-  transition: color 0.3s, transform .15s;
-  text-align: center;
-  display: inline-block;
-  position: relative;
-  z-index: 1;
+    padding: 1.25rem;
 }
 
-#services-2198 .cs-button-solid:before {
-  display: none;
-  content: "";
-  width: 0%;
-  height: 100%;
-  background: #ffffff;
-  opacity: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: width 0.3s;
-}
-
-#services-2198 .cs-button-solid:hover {
-  background-color: var(--primaryLight);
-  transform: scale(1.02);
-}
-
-#services-2198 .cs-button-solid:hover:before {
-  width: 100%;
-}
-  
-  #services-2198 .cs-picture {
+#menu-highlights .cs-picture {
     width: 100%;
-    height: clamp(15rem, 30vw, 21.25rem);
-    margin-bottom: 1rem;
-    background-color: #000;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    border-radius: 16px;
-    margin-bottom: 1rem;
-    overflow: hidden;
-  }
-  #services-2198 .cs-picture::before {
-    content: "";
-    width: 100%;
-    height: 1.25rem;
-    margin: 0 2rem;
-    background-color: transparent;
-    display: block;
-    position: relative;
-    top: 100%;
-    bottom: 0;
-    z-index: 10;
-    transition: background-color 0.3s;
-  }
-  #services-2198 .cs-picture img {
-    width: 100%;
-    height: 100%;
+    height: auto;
+    aspect-ratio: 413 / 340;
     object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: transform 0.6s, opacity 0.3s;
-  }
-  #services-2198 .cs-flex {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-  }
-  #services-2198 .cs-number {
-    font-size: 3rem;
-    font-weight: 900;
-    line-height: 1.2em;
-    text-align: inherit;
-    margin: 0;
-    color: var(--primary);
-    opacity: 0.2;
-    position: absolute;
-    z-index: 0;
-  }
-  #services-2198 .cs-h3 {
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+
+#menu-highlights .cs-h3 {
     font-size: 1.25rem;
     font-weight: 700;
-    line-height: 1.2em;
-    margin: 0 0 1.25rem 0;
+    line-height: 1.2;
+    margin: 0 0 0.75rem 0;
     color: var(--headerColor);
-    z-index: 1;
-  }
-  #services-2198 .cs-item-text {
+    text-align: center;
+}
+
+#menu-highlights .cs-item-text {
     font-size: 1rem;
-    line-height: 1.6em;
+    line-height: 1.6;
     margin: 0;
     color: var(--bodyTextColor);
-  }
+    text-align: center;
 }
 
-/* Tablet - 768px */
-@media only screen and (min-width: 48rem) {
-  #services-2198 .cs-container {
-    max-width: 80rem;
-    /* Increase padding at larger screens */
-    padding-left: clamp(1.5rem, 3vw, 2rem);
-    padding-right: clamp(1.5rem, 3vw, 2rem);
-  }
-  #services-2198 .cs-card-group {
-    max-width: none;
-    column-gap: clamp(1rem, 2.5vw, 1.25rem);
-  }
-  #services-2198 .cs-item {
-    grid-column: span 4;
-  }
-  #services-2198 .cs-picture {
-    margin-bottom: 3.25rem;
-  }
+#menu-highlights .cs-cta {
+    display: flex;
+    justify-content: center;
 }
-                                
 
+#menu-highlights .cs-button-solid {
+    background-color: var(--primary);
+    color: var(--bodyTextColorWhite);
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 14px;
+    transition: background-color 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#menu-highlights .cs-button-solid::before,
+#menu-highlights .cs-button-solid::after {
+    display: none !important;
+    content: none !important;
+}
+
+#menu-highlights .cs-button-solid:hover {
+    background-color: var(--primaryLight);
+    transform: scale(1.02);
+    border-radius: 14px !important;
+}
+
+/* Tablet - 2 columns */
+@media (min-width: 600px) {
+    #menu-highlights .cs-card-group {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop - 3 columns */
+@media (min-width: 900px) {
+    #menu-highlights .cs-card-group {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
 </style>

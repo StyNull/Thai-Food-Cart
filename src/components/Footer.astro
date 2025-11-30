@@ -1,278 +1,258 @@
-<!-- ============================================ -->
-<!--                   Footer                     -->
-<!-- ============================================ -->
+---
+import Logo from "@assets/images/HomePage/logo.png"
+import { Image } from "astro:assets"
 
-<footer id="cs-footer-269">
-    <div class="cs-container">
-        <!-- Logo Group -->
-        <div class="cs-logo-group">
-            <a aria-label="go back to home" class="cs-logo" href="">
-                <img class="cs-logo-img light" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Footer/logo-light.svg" alt="logo" width="240" height="32">
-            </a>
-            <p class="cs-text">
-                Authentic Thai cuisine made fresh daily with traditional recipes and the finest ingredients. Experience the true flavors of Thailand.
-            </p>
-        </div>
-        <!-- Links -->
-        <ul class="cs-nav">
-            <li class="cs-nav-li">
-                <span class="cs-header">Quick Links</span>
-            </li>
-            <li class="cs-nav-li">
-                <a class="cs-nav-link" href="">Menu</a>
-            </li>
-            <li class="cs-nav-li">
-                <a class="cs-nav-link" href="">About Us</a>
-            </li>
-            <li class="cs-nav-li">
-                <a class="cs-nav-link" href="">Catering</a>
-            </li>
-            <li class="cs-nav-li">
-                <a class="cs-nav-link" href="">Contact</a>
-            </li>
-        </ul>
-        <!-- Contact Info -->
-        <ul class="cs-contact">
-            <li class="cs-nav-li">
-                <span class="cs-header">Hours & Contact</span>
-            </li>
-            <li class="cs-contact-li">
-                <p class="cs-hours-title">Hours:</p>
-                <p class="cs-hours-text">Mon-Tue: 3:00 PM - 9:00 PM</p>
-                <p class="cs-hours-text">Wed-Fri: 3:00 PM - 9:00 PM</p>
-                <p class="cs-hours-text">Sat: 12:00 PM - 9:00 PM</p>
-                <p class="cs-hours-text">Sun: 12:00 PM - 7:00 PM</p>
-            </li>
-            <li class="cs-contact-li">
-                <a class="cs-contact-link" href="tel:123-456-7890">(123) 456-7890</a>
-            </li>
-            <li class="cs-contact-li">
-                <a class="cs-contact-link" href="mailto:info@thairestaurant.com">info@thairestaurant.com</a>
-            </li>
-            <!-- Social Media -->
-            <li class="cs-contact-li cs-social-group">
-                <div class="cs-social">
-                    <a class="cs-social-link" aria-label="visit google profile" href="">
-                        <img class="cs-social-img" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Social/google.svg" alt="google" width="11" height="11">
-                    </a>
-                    <a class="cs-social-link" aria-label="visit facebook profile" href="">
-                        <img class="cs-social-img" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Social/Facebook.svg" alt="facebook" width="6" height="11">
-                    </a>
-                    <a class="cs-social-link" aria-label="visit instagram profile" href="">
-                        <img class="cs-social-img" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Social/instagram.svg" alt="instagram" width="11" height="11">
-                    </a>
-                </div>
-            </li>
-        </ul>
+const navLinks = [
+  { name: "Menu", href: "/menu" },
+  { name: "Reviews", href: "/reviews" },
+  { name: "About", href: "/#about-us" }
+]
+
+const hours = [
+  { days: "Mon – Fri", time: "3:00 PM – 9:00 PM" },
+  { days: "Saturday", time: "12:00 PM – 9:00 PM" },
+  { days: "Sunday", time: "12:00 PM – 7:00 PM" }
+]
+---
+
+<footer id="footer">
+  <div class="cs-container">
+    <div class="cs-logo-group">
+      <a aria-label="go back to home" class="cs-logo" href="/">
+        <Image 
+          src={Logo} 
+          alt="Esan Thai Food Cart logo" 
+          width={180} 
+          height={60}
+          class="cs-logo-img"
+        />
+      </a>
+      <p class="cs-text">
+        Authentic Esan Thai cuisine made fresh daily. Family recipes from Northeast Thailand, right here in Vancouver.
+      </p>
+      <div class="cs-social">
+        <a class="cs-social-link" aria-label="visit yelp profile" href="https://www.yelp.com/biz/esan-thai-food-cart-vancouver" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.1 12.4l-4.9 2.3c-.5.2-1-.2-1-.8V7.5c0-.6.5-1 1-.8l4.9 2.3c.5.2.5 1 0 1.2l-4.9 2.2zm-1.6 4.8l3.4 3.4c.4.4 1 .1 1-.4V14c0-.5-.6-.8-1-.4l-3.4 3.4c-.4.4-.4 1 0 1.4l.1-.2zm5.5-5.2l3.4-3.4c.4-.4.1-1-.4-1H13c-.5 0-.8.6-.4 1l3.4 3.4z"/></svg>
+        </a>
+        <a class="cs-social-link" aria-label="visit facebook profile" href="#" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a class="cs-social-link" aria-label="visit instagram profile" href="#" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.6.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.6-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.6-.1 4.9-.1zm0-2.2C8.7 0 8.3 0 7 .1 5.7.1 4.7.3 3.9.6c-.9.3-1.6.8-2.3 1.5C.9 2.8.4 3.5.1 4.4c-.3.8-.5 1.8-.5 3.1C-.4 8.7-.4 9.1-.4 12s0 3.3.1 4.5c.1 1.3.2 2.3.5 3.1.3.9.8 1.6 1.5 2.3.7.7 1.4 1.2 2.3 1.5.8.3 1.8.5 3.1.5 1.3.1 1.7.1 4.5.1s3.2 0 4.5-.1c1.3-.1 2.3-.2 3.1-.5.9-.3 1.6-.8 2.3-1.5.7-.7 1.2-1.4 1.5-2.3.3-.8.5-1.8.5-3.1.1-1.3.1-1.7.1-4.5s0-3.2-.1-4.5c-.1-1.3-.2-2.3-.5-3.1-.3-.9-.8-1.6-1.5-2.3-.7-.7-1.4-1.2-2.3-1.5-.8-.3-1.8-.5-3.1-.5C15.3 0 14.9 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.4a1.4 1.4 0 1 1 0-2.8 1.4 1.4 0 0 1 0 2.8z"/></svg>
+        </a>
+      </div>
     </div>
+
+    <nav class="cs-nav" aria-label="Footer navigation">
+      <span class="cs-header">Quick Links</span>
+      <ul class="cs-nav-list">
+        {navLinks.map((link) => (
+          <li class="cs-nav-li">
+            <a class="cs-nav-link" href={link.href}>{link.name}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="cs-contact">
+      <span class="cs-header">Hours & Location</span>
+      <ul class="cs-hours">
+        {hours.map((item) => (
+          <li><span>{item.days}</span><span>{item.time}</span></li>
+        ))}
+      </ul>
+      <address class="cs-address">
+        <a href="https://maps.google.com?q=2315+Main+St+Vancouver+WA+98660" target="_blank" rel="noopener">
+          2315 Main St<br>Vancouver, WA 98660
+        </a>
+      </address>
+      <a class="cs-phone" href="tel:+15039330151">(503) 933-0151</a>
+    </div>
+  </div>
+  
+  <div class="cs-bottom">
+    <p class="cs-copyright">© 2024 Esan Thai Food Cart. All rights reserved.</p>
+  </div>
 </footer>
 
 <style>
-/*-- -------------------------- -->
-<---          Footer            -->
-<--- -------------------------- -*/
-
-/* Mobile - 360px */
-@media only screen and (min-width: 0rem) {
-    #cs-footer-269 {
-        padding: 0 2rem 2rem 2rem;
-        background-color: transparent;
-        position: relative;
-        z-index: 1;
-    }
-    #cs-footer-269 .cs-container {
-        width: 100%;
-        max-width: none;
-        margin: auto;
-        padding: 2em;
-        background-color: #2A1F17;
-        border-radius: 2rem;
-        overflow: hidden;
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        flex-wrap: wrap;
-        column-gap: clamp(4.25rem, calc(10%), 6.25rem);
-        position: relative;
-        z-index: 2;
-    }
-    #cs-footer-269 .cs-logo-group {
-        /* takes up all the space, lets the other ul's wrap below it */
-        width: 100%;
-        position: relative;
-    }
-    #cs-footer-269 .cs-logo {
-        /* 210px - 240px */
-        width: clamp(13.125rem, 8vw, 15rem);
-        height: auto;
-        display: block;
-        /* 28px - 44px */
-        margin-bottom: clamp(1.75rem, 4.17vw, 2.75rem);
-    }
-    #cs-footer-269 .cs-logo-img {
-        width: 100%;
-        height: auto;
-    }
-    #cs-footer-269 .cs-text {
-        /* 14px - 16px */
-        font-size: clamp(0.875rem, 2.5vw, 1rem);
-        line-height: 1.5em;
-        margin: 0;
-        margin-bottom: 2rem;
-        /* changes to 305px at desktop */
-        max-width: 33.75rem;
-        color: #FAF8F5;
-    }
-    #cs-footer-269 .cs-nav {
-        padding: 0;
-        margin: 0;
-    }
-    #cs-footer-269 .cs-nav-li {
-        list-style: none;
-        line-height: 1.5em;
-        margin-bottom: 0.5rem;
-    }
-    #cs-footer-269 .cs-nav-li:last-of-type {
-        margin-bottom: 0;
-    }
-    #cs-footer-269 .cs-header {
-        font-size: 1rem;
-        line-height: 1.5em;
-        font-weight: 700;
-        margin-bottom: 0.875rem;
-        color: #FAF8F5;
-        position: relative;
-        display: block;
-    }
-    #cs-footer-269 .cs-nav-link {
-        font-size: 1rem;
-        text-decoration: none;
-        line-height: 1.5em;
-        color: #FAF8F5;
-        position: relative;
-        transition: color 0.3s;
-    }
-    #cs-footer-269 .cs-nav-link:before {
-        /* underline */
-        content: "";
-        width: 0%;
-        height: 0.125rem;
-        background: #EAC23C;
-        opacity: 1;
-        position: absolute;
-        display: block;
-        bottom: -0.125rem;
-        left: 0;
-        transition: width 0.3s;
-    }
-    #cs-footer-269 .cs-nav-link:hover {
-        color: #EAC23C;
-    }
-    #cs-footer-269 .cs-nav-link:hover:before {
-        width: 100%;
-    }
-    #cs-footer-269 .cs-contact {
-        margin: 0;
-        padding: 0;
-        width: auto;
-        display: flex;
-        flex-direction: column;
-        align-self: stretch;
-    }
-    #cs-footer-269 .cs-contact-li {
-        list-style: none;
-        margin-bottom: 1rem;
-    }
-    #cs-footer-269 .cs-contact-li:last-of-type {
-        margin-bottom: 0;
-    }
-    #cs-footer-269 .cs-hours-title {
-        font-size: 0.9375rem;
-        font-weight: 600;
-        color: #FAF8F5;
-        margin: 0 0 0.5rem 0;
-    }
-    #cs-footer-269 .cs-hours-text {
-        font-size: 0.875rem;
-        line-height: 1.6em;
-        color: rgba(250, 248, 245, 0.65);
-        margin: 0;
-    }
-    #cs-footer-269 .cs-contact-link {
-        font-size: 1rem;
-        text-decoration: none;
-        line-height: 1.5em;
-        text-align: left;
-        color: #FAF8F5;
-        display: inline-block;
-        transition: color 0.3s;
-    }
-    #cs-footer-269 .cs-contact-link:hover {
-        color: #EAC23C;
-        text-decoration: underline;
-    }
-    #cs-footer-269 .cs-address {
-        font-size: 1rem;
-        margin-bottom: 1.25rem;
-    }
-    #cs-footer-269 .cs-social-group {
-        /* pushes away from the other flex items */
-        margin-top: auto;
-        margin-left: auto;
-    }
-    #cs-footer-269 .cs-social {
-        display: inline-flex;
-        justify-content: flex-start;
-        gap: 0.75rem;
-    }
-    #cs-footer-269 .cs-social-link {
-        width: 1.5rem;
-        height: 1.5rem;
-        background-color: rgba(255, 255, 255, 0.18);
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        z-index: 1;
-        transition:
-            transform 0.3s,
-            background-color 0.3s;
-    }
-    #cs-footer-269 .cs-social-link:hover {
-        background-color: #EAC23C;
-        transform: translateY(-0.1875rem);
-    }
-    #cs-footer-269 .cs-social-img {
-        height: 0.8125rem;
-        width: auto;
-        display: block;
-    }
+#footer {
+  padding: 0 1rem 1.5rem;
+  background-color: transparent;
 }
-/* Tablet - 768px */
-@media only screen and (min-width: 48rem) {
-    #cs-footer-269 {
-        padding: 0 2rem 2rem 2rem;
-    }
-    #cs-footer-269 .cs-container {
-        max-width: none;
-        row-gap: 0;
-        padding: 2em;
-    }
-    #cs-footer-269 .cs-logo-group {
-        width: auto;
-        /* pushes everything to the right of it as far as possible in a flexbox */
-        margin-right: auto;
-    }
-    #cs-footer-269 .cs-text {
-        width: 80%;
-        max-width: 19.0625rem;
-        margin: 0;
-    }
-    #cs-footer-269 .cs-nav,
-    #cs-footer-269 .cs-contact {
-        /* 8px - 12px */
-        margin-top: clamp(0.5rem, 1.2vw, 0.75rem);
-    }
+
+#footer .cs-container {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 3rem);
+  background-color: #2A1F17;
+  border-radius: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+#footer .cs-logo-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+#footer .cs-logo {
+  display: block;
+  width: fit-content;
+}
+
+#footer .cs-logo-img {
+  width: auto;
+  height: clamp(2.5rem, 5vw, 3.5rem);
+  object-fit: contain;
+}
+
+#footer .cs-text {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: rgba(250, 248, 245, 0.8);
+  margin: 0;
+  max-width: 32ch;
+}
+
+#footer .cs-social {
+  display: flex;
+  gap: 0.75rem;
+}
+
+#footer .cs-social-link {
+  width: 2.25rem;
+  height: 2.25rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FAF8F5;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+#footer .cs-social-link:hover {
+  background-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+#footer .cs-header {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #FAF8F5;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+#footer .cs-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+#footer .cs-nav-link {
+  font-size: 0.9375rem;
+  color: rgba(250, 248, 245, 0.8);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+#footer .cs-nav-link:hover {
+  color: var(--primary);
+}
+
+#footer .cs-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#footer .cs-hours {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+#footer .cs-hours li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: rgba(250, 248, 245, 0.7);
+  max-width: 14rem;
+}
+
+#footer .cs-address {
+  font-style: normal;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+#footer .cs-address a {
+  color: rgba(250, 248, 245, 0.8);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+#footer .cs-address a:hover {
+  color: var(--primary);
+}
+
+#footer .cs-phone {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #FAF8F5;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+#footer .cs-phone:hover {
+  color: var(--primary);
+}
+
+#footer .cs-bottom {
+  max-width: 80rem;
+  margin: 1rem auto 0;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+#footer .cs-copyright {
+  font-size: 0.8125rem;
+  color: var(--bodyTextColor);
+  opacity: 0.6;
+  margin: 0;
+}
+
+/* Tablet */
+@media (min-width: 48rem) {
+  #footer .cs-container {
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 2rem;
+  }
+
+  #footer .cs-logo-group {
+    grid-row: span 1;
+  }
+}
+
+/* Desktop */
+@media (min-width: 64rem) {
+  #footer .cs-container {
+    padding: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  #footer .cs-text {
+    max-width: 28ch;
+  }
 }
 </style>
