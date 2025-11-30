@@ -1,0 +1,339 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro"
+---
+
+<BaseLayout
+  title="Catering | Esan Thai Food Cart"
+  description="Esan Thai catering for events in Vancouver, WA. Minimum 10 entrées. Call ahead to order authentic Thai food for your group."
+>
+  <section id="catering-page">
+    <div class="cs-container">
+      <div class="cs-content">
+        <span class="cs-topper">Catering</span>
+        <h1 class="cs-title">Feed Your Group</h1>
+        <p class="cs-text">
+          Planning an event, office lunch, or party? We cater authentic Esan Thai for groups of any size. Same fresh, made-to-order food—just more of it.
+        </p>
+      </div>
+
+      <div class="cs-main">
+        <div class="cs-info-card">
+          <h2 class="cs-card-title">How to Order</h2>
+          
+          <div class="cs-callout">
+            <svg class="cs-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <div class="cs-callout-content">
+              <p class="cs-callout-title">Call to Order</p>
+              <a href="tel:+15039330151" class="cs-phone">(503) 933-0151</a>
+            </div>
+          </div>
+
+          <p class="cs-note">
+            <strong>Please call ahead for all catering orders.</strong> We don't take catering orders by email or online—we want to make sure we get your order exactly right.
+          </p>
+
+          <ul class="cs-details">
+            <li>
+              <strong>Minimum Order:</strong> 10 entrées
+            </li>
+            <li>
+              <strong>Lead Time:</strong> Call at least 24-48 hours ahead
+            </li>
+            <li>
+              <strong>Menu:</strong> Full menu available for catering
+            </li>
+            <li>
+              <strong>Pickup:</strong> At our cart next to Trap Door Brewing
+            </li>
+          </ul>
+        </div>
+
+        <div class="cs-form-card">
+          <h2 class="cs-card-title">Questions? Send Us a Message</h2>
+          <p class="cs-form-note">
+            For general inquiries only—not for placing orders. We'll get back to you when we can.
+          </p>
+          
+          <form class="cs-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="cs-field">
+              <label for="name" class="cs-label">Name</label>
+              <input type="text" id="name" name="name" required class="cs-input">
+            </div>
+            
+            <div class="cs-field">
+              <label for="email" class="cs-label">Email</label>
+              <input type="email" id="email" name="email" required class="cs-input">
+            </div>
+            
+            <div class="cs-field">
+              <label for="phone" class="cs-label">Phone (optional)</label>
+              <input type="tel" id="phone" name="phone" class="cs-input">
+            </div>
+            
+            <div class="cs-field cs-full">
+              <label for="message" class="cs-label">Message</label>
+              <textarea id="message" name="message" rows="4" required class="cs-input cs-textarea"></textarea>
+            </div>
+            
+            <button type="submit" class="cs-button-solid">Send Message</button>
+          </form>
+          
+          <p class="cs-email-note">
+            Or email us directly: <a href="mailto:info@esanthainw.com">info@esanthainw.com</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+#catering-page {
+  background-color: var(--backgroundColor);
+  padding: clamp(6rem, 10vw, 9rem) 1rem clamp(3.5rem, 7vw, 7rem);
+}
+
+#catering-page .cs-container {
+  width: 100%;
+  max-width: 70rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 5vw, 4rem);
+}
+
+#catering-page .cs-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+#catering-page .cs-title {
+  margin: 0;
+}
+
+#catering-page .cs-text {
+  margin: 0;
+  max-width: 50ch;
+  line-height: 1.6;
+  color: var(--bodyTextColor);
+}
+
+#catering-page .cs-main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+#catering-page .cs-info-card,
+#catering-page .cs-form-card {
+  background: var(--surfaceColor);
+  border: 1px solid var(--borderColor);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px var(--shadowColor);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+#catering-page .cs-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--headerColor);
+  margin: 0 0 1.5rem;
+}
+
+#catering-page .cs-callout {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background-color: var(--primary);
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+#catering-page .cs-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--bodyTextColorWhite);
+  flex-shrink: 0;
+}
+
+#catering-page .cs-callout-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+#catering-page .cs-callout-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--bodyTextColorWhite);
+  opacity: 0.9;
+  margin: 0;
+}
+
+#catering-page .cs-phone {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--bodyTextColorWhite);
+  text-decoration: none;
+}
+
+#catering-page .cs-phone:hover {
+  text-decoration: underline;
+}
+
+#catering-page .cs-note {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--bodyTextColor);
+  margin: 0 0 1.5rem;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 8px;
+  border-left: 3px solid var(--primary);
+}
+
+#catering-page .cs-details {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+#catering-page .cs-details li {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--bodyTextColor);
+  padding-bottom: 0.75rem;
+  border-bottom: 1px dashed var(--borderColor);
+}
+
+#catering-page .cs-details li:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+#catering-page .cs-details strong {
+  color: var(--headerColor);
+}
+
+/* Form Styles */
+#catering-page .cs-form-note {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--bodyTextColor);
+  opacity: 0.8;
+  margin: 0 0 1.5rem;
+}
+
+#catering-page .cs-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+#catering-page .cs-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+#catering-page .cs-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--headerColor);
+}
+
+#catering-page .cs-input {
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--borderColor);
+  border-radius: 8px;
+  background-color: var(--backgroundColor);
+  color: var(--headerColor);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#catering-page .cs-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(234, 194, 60, 0.2);
+}
+
+#catering-page .cs-textarea {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+#catering-page .cs-button-solid {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  color: var(--bodyTextColorWhite);
+  background-color: var(--primary);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.15s;
+  margin-top: 0.5rem;
+}
+
+#catering-page .cs-button-solid:hover {
+  background-color: var(--primaryLight);
+  transform: scale(1.02);
+}
+
+#catering-page .cs-email-note {
+  font-size: 0.875rem;
+  color: var(--bodyTextColor);
+  margin: 1.5rem 0 0;
+  text-align: center;
+}
+
+#catering-page .cs-email-note a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#catering-page .cs-email-note a:hover {
+  text-decoration: underline;
+}
+
+/* Tablet - 2 columns */
+@media (min-width: 48rem) {
+  #catering-page .cs-form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #catering-page .cs-full {
+    grid-column: span 2;
+  }
+
+  #catering-page .cs-button-solid {
+    justify-self: start;
+  }
+}
+
+/* Desktop - side by side */
+@media (min-width: 64rem) {
+  #catering-page .cs-main {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  #catering-page .cs-container {
+    max-width: 80rem;
+  }
+}
+</style>
