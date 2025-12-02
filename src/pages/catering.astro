@@ -35,19 +35,22 @@ import BaseLayout from "@layouts/BaseLayout.astro"
           </p>
 
           <ul class="cs-details">
-            <li>
-              <strong>Minimum Order:</strong> 10 entrées
-            </li>
-            <li>
-              <strong>Lead Time:</strong> Call at least 24-48 hours ahead
-            </li>
-            <li>
-              <strong>Menu:</strong> Full menu available for catering
-            </li>
-            <li>
-              <strong>Pickup:</strong> At our cart next to Trap Door Brewing
-            </li>
-          </ul>
+    <li>
+        <strong>Minimum Order:</strong> 10 entrées
+    </li>
+    <li>
+        <strong>Lead Time:</strong> 24 hours ahead, or same day with 2-4 hours notice
+    </li>
+    <li>
+        <strong>Menu:</strong> Full menu available for catering
+    </li>
+    <li>
+        <strong>Pickup:</strong> At our cart next to Trap Door Brewing
+    </li>
+    <li>
+        <strong>Delivery:</strong> Available for a fee—call for details
+    </li>
+</ul>
         </div>
 
         <div class="cs-form-card">
@@ -56,29 +59,31 @@ import BaseLayout from "@layouts/BaseLayout.astro"
             For general inquiries only—not for placing orders. We'll get back to you when we can.
           </p>
           
-          <form class="cs-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-            <div class="cs-field">
-              <label for="name" class="cs-label">Name</label>
-              <input type="text" id="name" name="name" required class="cs-input">
-            </div>
-            
-            <div class="cs-field">
-              <label for="email" class="cs-label">Email</label>
-              <input type="email" id="email" name="email" required class="cs-input">
-            </div>
-            
-            <div class="cs-field">
-              <label for="phone" class="cs-label">Phone (optional)</label>
-              <input type="tel" id="phone" name="phone" class="cs-input">
-            </div>
-            
-            <div class="cs-field cs-full">
-              <label for="message" class="cs-label">Message</label>
-              <textarea id="message" name="message" rows="4" required class="cs-input cs-textarea"></textarea>
-            </div>
-            
-            <button type="submit" class="cs-button-solid">Send Message</button>
-          </form>
+          <form name="contact" method="POST" data-netlify="true" class="cs-form">
+    <input type="hidden" name="form-name" value="contact" />
+    
+    <div class="cs-field">
+        <label for="name" class="cs-label">Name</label>
+        <input type="text" id="name" name="name" required class="cs-input">
+    </div>
+    
+    <div class="cs-field">
+        <label for="email" class="cs-label">Email</label>
+        <input type="email" id="email" name="email" required class="cs-input">
+    </div>
+    
+    <div class="cs-field">
+        <label for="phone" class="cs-label">Phone (optional)</label>
+        <input type="tel" id="phone" name="phone" class="cs-input">
+    </div>
+    
+    <div class="cs-field cs-full">
+        <label for="message" class="cs-label">Message</label>
+        <textarea id="message" name="message" rows="4" required class="cs-input cs-textarea"></textarea>
+    </div>
+    
+    <button type="submit" class="cs-button-solid">Send Message</button>
+</form>
           
           <p class="cs-email-note">
             Or email us directly: <a href="mailto:info@esanthainw.com">info@esanthainw.com</a>
