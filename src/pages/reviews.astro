@@ -1,366 +1,417 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-import CTA from "@components/CTA.astro";
-import Landing from "@components/Landing.astro";
+import BaseLayout from "@layouts/BaseLayout.astro"
 
-// Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
-import landingImage from "@assets/images/landing.jpg" // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
-import { getImage } from "astro:assets";
-const optimizedImage = await getImage({src: landingImage, format: 'avif'});
+const reviews = [
+    {
+        name: "VeRnSquad5611",
+        location: "Buena Park, CA",
+        date: "2022-11-21",
+        text: "Best Thai food in all of Vancouver better than Thai orchid, arrawan, and I am Thai eatery. Which are all in my top 5 but this place stands alone as king. This is the closest place I have found that tastes like what I actually had in Thailand. So much flavor the pad see mao, thai beef salad, and the best pineapple fried rice I've ever had are my go tos. It's a family business and is run by the same sweet gal you'll see every time you go, unless it's a Sunday that's when the grand daughters take over and give her the day off. Beware tho if you see the young granddaughters working they still make the same top notch delicious food, they just have a tendency to add some extra heat to the dish. So if it's a Sunday you'll still get the exact same quality. I'd just go one star down from your normal heat level. As someone who thinks Thai food should be spicy they take it to another level and I think that's awesome, please don't change a thing based on this review. Warning, once you have had this place just once, you will get random cravings for that pineapple fried rice at least once per week, so I hope you live close.",
+        featured: true
+    },
+    {
+        name: "Travis V.",
+        location: "Vancouver, WA",
+        date: "2019-06-30",
+        text: "This place is so consistent! I eat here when I'm at Trapdoor and they are quick, delicious and friendly. I've ordered a plethora of dishes and they are all great. Insider tip: ask for the chili flakes! They are much hotter than what you buy at the store or at a pizza joint. So good!"
+    },
+    {
+        name: "Claire Marie W.",
+        location: "Bend, OR",
+        date: "2019-07-08",
+        text: "This place puts that good boom pow pow in your mouth. Very friendly service and amazing food! I'm not local to Vancouver anymore but I visit frequently and this is the Thai food location you will find me at from now on."
+    },
+    {
+        name: "Joe M.",
+        location: "Vancouver, WA",
+        date: "2022-09-06",
+        text: "S+ Tier Food S+ Tier Service. The moment the food entered my mouth, it was like a party just erupted in delicious flavor."
+    },
+    {
+        name: "Molly R.",
+        location: "Portland, OR",
+        date: "2020-10-09",
+        text: "Best Pad Prik Khing I've ever had. Consistently good, and quick. When I'm downtown I always come here for pad prik and a beer at trapdoor. Unmatched!"
+    },
+    {
+        name: "J H.",
+        location: "Portland, OR",
+        date: "2019-08-08",
+        text: "Pleasant surprise! Stopped to get a Tang IPA at trapdoor and decided to order some Evil Prince - EXCELLENT - the curry was hot and spice spot on - vegetables not over cooked and plenty of chicken. This is better than most in Portland."
+    },
+    {
+        name: "Tyson L.",
+        location: "Vancouver, WA",
+        date: "2021-05-19",
+        text: "Ate dinner here with friends not too long ago. We shared pad kee mao, pineapple fried rice, and some sort of black pepper stir fry. It was delicious, especially the pad kee mao. It's a great location with outdoor covered dining right outside of Trap Door Brewing - perfect for sharing food and some brews with friends. I'll definitely be going back!"
+    },
+    {
+        name: "Tom C.",
+        location: "Seattle, WA",
+        date: "2020-06-19",
+        text: "Best panang curry I've had in quite some time. Medium was a good spice level for me and I enjoy spicy foods. Portion to price ratio was solid. Egg rolls were also enjoyable."
+    },
+    {
+        name: "Brad L.",
+        location: "Vancouver, WA",
+        date: "2022-03-15",
+        text: "Great Thai food made fresh. Super convenient location to grab a beer. Food is great and the menu is surprisingly diverse for a food truck. Unique plus is that the owners speak French! I stop here whenever the craving for Thai appears and I am in the neighborhood."
+    },
+    {
+        name: "Adrienne M.",
+        location: "Zionsville, IN",
+        date: "2020-01-16",
+        text: "Okay so a food cart that is worth going out of your way. I ordered two things! Pad See Ew with chicken and the Crab Puffs! Those are usually my first go to's when trying a new Thai place. When I say they were so delicious I couldn't even wait until I got home. I ate the whole order of Crab Puffs in the car! Great prices as well. It's on my radar now!"
+    },
+    {
+        name: "Jourdan G.",
+        location: "Portland, OR",
+        date: "2021-02-09",
+        text: "Soo good! Always consistent. Great portions, yay leftovers! Great customer service! Great prices."
+    },
+    {
+        name: "Monique H.",
+        location: "Vancouver, WA",
+        date: "2021-07-28",
+        text: "This is my only Thai go to in Vancouver, Washington. I am very picky because I can not handle a lot of MSG, or sugar. I order Evil Prince or Tom Yum. This place is consistently serving up the best Thai Food within 30 miles."
+    },
+    {
+        name: "Chelsea R.",
+        location: "Vancouver, WA",
+        date: "2022-08-08",
+        text: "Best Thai food in the area. Great pad Thai and the #33 is great too. Super nice lady who takes orders."
+    },
+    {
+        name: "Bong J.",
+        location: "Battle Ground, WA",
+        date: "2021-09-02",
+        text: "My go to for a quick yummy Thai food. Their pad Thai is great. Around ten bucks for that and other good dishes. They're right next to a brewery so grab your food and drink."
+    },
+    {
+        name: "Deysi M.",
+        location: "Vancouver, WA",
+        date: "2022-06-08",
+        text: "Can never go wrong with the Pineapple Fried Rice. The Pad Thai is always filling, and goes for an awesome price too."
+    },
+    {
+        name: "Janice M.",
+        location: "Newport, OR",
+        date: "2020-01-10",
+        text: "Great every time! They sit next to trapdoor brewery, and have outdoor sitting in the summer."
+    },
+    {
+        name: "R U.",
+        location: "Vancouver, WA",
+        date: "2022-05-18",
+        text: "This place is great, and better than some Thai restaurants in town for sure! I order from here weekly. Friendly, efficient service and tasty hot food!"
+    }
+];
+
+const featuredReview = reviews.find(r => r.featured);
+const regularReviews = reviews.filter(r => !r.featured);
+
+// Schema markup for reviews
+const reviewSchema = {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Esan Thai Food Cart",
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": reviews.length.toString(),
+        "bestRating": "5",
+        "worstRating": "1"
+    },
+    "review": reviews.map(review => ({
+        "@type": "Review",
+        "author": {
+            "@type": "Person",
+            "name": review.name
+        },
+        "datePublished": review.date,
+        "reviewBody": review.text,
+        "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5",
+            "worstRating": "1"
+        }
+    }))
+};
 ---
 
 <BaseLayout
-  title="Reviews"
-  description="Meta description for the page"
-  preloadedImage = {optimizedImage}
->
-  <!-- ============================================ -->
-  <!--                    LANDING                   -->
-  <!-- ============================================ -->
-
-  <Landing 
     title="Reviews"
-    image={optimizedImage}
-  />
+    description="See what customers say about Esan Thai Food Cart. 5-star reviews from Vancouver, WA and beyond."
+>
+    <!-- Review Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(reviewSchema)} />
 
-  <!-- ============================================ -->
-  <!--                  Reviews                     -->
-  <!-- ============================================ -->
+    <section id="reviews-567">
+        <div class="cs-container">
+            <div class="cs-content">
+                <span class="cs-topper">What People Are Saying</span>
+                <h1 class="cs-title">Customer Reviews</h1>
+                <p class="cs-text">
+                    Real reviews from real customers. All 5-star ratings from Yelp.
+                </p>
+            </div>
 
-  <section id="reviews">
-    <div class="container">
-      <div class="review">
-        <picture>
-          <img
-            class="profile"
-            loading="lazy"
-            decoding="async"
-            src="/assets/svgs/profile.svg"
-            alt=""
-            width="99"
-            height="99"
-          />
-        </picture>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed
-          recusandae rerum unde similique ratione sapiente necessitatibus natus
-          mollitia nam iusto.
-        </p>
-        <div class="star-group">
-          <span class="name">B Miller<span class="desc">Homeowner</span></span>
-          <picture>
-            <img
-              aria-hidden="true"
-              loading="lazy"
-              decoding="async"
-              src="/assets/svgs/stars.svg"
-              alt="stars"
-              width="91"
-              height="15"
-            />
-          </picture>
+            <!-- Featured Review -->
+            {featuredReview && (
+                <div class="cs-featured">
+                    <img 
+                        class="cs-stars" 
+                        aria-hidden="true" 
+                        src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Reviews/stars3.svg" 
+                        decoding="async" 
+                        alt="5 stars" 
+                        width="189" 
+                        height="24"
+                    >
+                    <p class="cs-item-text">{featuredReview.text}</p>
+                    <div class="cs-flex-group">
+                        <span class="cs-name">
+                            {featuredReview.name}
+                            <span class="cs-job">{featuredReview.location}</span>
+                        </span>
+                    </div>
+                </div>
+            )}
+
+            <!-- Reviews Grid -->
+            <ul class="cs-card-group">
+                {regularReviews.map((review) => (
+                    <li class="cs-item">
+                        <img 
+                            class="cs-stars" 
+                            aria-hidden="true" 
+                            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Reviews/stars3.svg" 
+                            decoding="async" 
+                            alt="5 stars" 
+                            width="189" 
+                            height="24"
+                        >
+                        <p class="cs-item-text">{review.text}</p>
+                        <div class="cs-flex-group">
+                            <span class="cs-name">
+                                {review.name}
+                                <span class="cs-job">{review.location}</span>
+                            </span>
+                        </div>
+                    </li>
+                ))}
+            </ul>
+
+            <!-- CTA -->
+            <div class="cs-cta">
+                <h2 class="cs-cta-title">Tried Our Food?</h2>
+                <p class="cs-cta-text">We'd love to hear from you!</p>
+                <a 
+                    href="https://www.yelp.com/biz/esan-thai-food-cart-vancouver" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="cs-button-solid"
+                >
+                    Leave a Review on Yelp
+                </a>
+            </div>
         </div>
-      </div>
-      <div class="review">
-        <picture>
-          <img
-            class="profile"
-            loading="lazy"
-            decoding="async"
-            src="/assets/svgs/profile.svg"
-            alt=""
-            width="99"
-            height="99"
-          />
-        </picture>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed
-          recusandae rerum unde similique ratione sapiente necessitatibus natus
-          mollitia nam iusto.
-        </p>
-        <div class="star-group">
-          <span class="name">Vincent M.<span class="desc">Homeowner</span></span
-          >
-          <picture>
-            <img
-              aria-hidden="true"
-              loading="lazy"
-              decoding="async"
-              src="/assets/svgs/stars.svg"
-              alt="stars"
-              width="91"
-              height="15"
-            />
-          </picture>
-        </div>
-      </div>
-      <div class="review">
-        <picture>
-          <img
-            class="profile"
-            loading="lazy"
-            decoding="async"
-            src="/assets/svgs/profile.svg"
-            alt=""
-            width="99"
-            height="99"
-          />
-        </picture>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed
-          recusandae rerum unde similique ratione sapiente necessitatibus natus
-          mollitia nam iusto.
-        </p>
-        <div class="star-group">
-          <span class="name">Alex L.<span class="desc">Homeowner</span></span>
-          <picture>
-            <img
-              aria-hidden="true"
-              loading="lazy"
-              decoding="async"
-              src="/assets/svgs/stars.svg"
-              alt="stars"
-              width="91"
-              height="15"
-            />
-          </picture>
-        </div>
-      </div>
-      <div class="review">
-        <picture>
-          <img
-            class="profile"
-            loading="lazy"
-            decoding="async"
-            src="/assets/svgs/profile-woman.svg"
-            alt=""
-            width="99"
-            height="99"
-          />
-        </picture>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed
-          recusandae rerum unde similique ratione sapiente necessitatibus natus
-          mollitia nam iusto.
-        </p>
-        <div class="star-group">
-          <span class="name"
-            >Arrieana M.<span class="desc">Homeowner</span></span
-          >
-          <picture>
-            <img
-              aria-hidden="true"
-              loading="lazy"
-              decoding="async"
-              src="/assets/svgs/stars.svg"
-              alt="stars"
-              width="91"
-              height="15"
-            />
-          </picture>
-        </div>
-      </div>
-      <div class="review">
-        <picture>
-          <img
-            class="profile"
-            loading="lazy"
-            decoding="async"
-            src="/assets/svgs/profile.svg"
-            alt=""
-            width="99"
-            height="99"
-          />
-        </picture>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed
-          recusandae rerum unde similique ratione sapiente necessitatibus natus
-          mollitia nam iusto.
-        </p>
-        <div class="star-group">
-          <span class="name">Leo N.<span class="desc">Homeowner</span></span>
-          <picture>
-            <img
-              aria-hidden="true"
-              loading="lazy"
-              decoding="async"
-              src="/assets/svgs/stars.svg"
-              alt="stars"
-              width="91"
-              height="15"
-            />
-          </picture>
-        </div>
-      </div>
-      <div class="review">
-        <picture>
-          <img
-            class="profile"
-            loading="lazy"
-            decoding="async"
-            src="/assets/svgs/profile.svg"
-            alt=""
-            width="99"
-            height="99"
-          />
-        </picture>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed
-          recusandae rerum unde similique ratione sapiente necessitatibus natus
-          mollitia nam iusto.
-        </p>
-        <div class="star-group">
-          <span class="name">Brian A.<span class="desc">Homeowner</span></span>
-          <picture>
-            <img
-              aria-hidden="true"
-              loading="lazy"
-              decoding="async"
-              src="/assets/svgs/stars.svg"
-              alt="stars"
-              width="91"
-              height="15"
-            />
-          </picture>
-        </div>
-      </div>
-    </div>
-  </section>
-  <CTA />
+    </section>
 </BaseLayout>
 
-<style lang="less">
-  /* PAGE-SPECIFIC STYLES FOR THE REVIEWS PAGE */
+<style>
+    /* Mobile - 360px */
+    #reviews-567 {
+    padding: clamp(10rem, 25.95vw, 12.5rem) 1rem 1rem 1rem; /* Reduced bottom padding */
+    background-color: var(--backgroundColor);
+    }
 
-  /*-- -------------------------- -->
-<---           Reviews          -->
-<--- -------------------------- -*/
-
-  /* Mobile */
-  @media only screen and (min-width: 0em) {
-    #reviews {
-      margin: auto;
-      padding-top: (120/16rem);
-      padding-bottom: (50/16rem);
-
-      .container {
-        width: 96%;
-        max-width: (1320/16rem);
-      }
-
-      .review {
+    #reviews-567 .cs-container {
         width: 100%;
-        max-width: (410/16rem);
+        max-width: 34.375rem;
         margin: auto;
-        margin-bottom: (100/16rem);
-        padding: (64/16rem) (30/16rem) (18/16rem) (30/16rem);
-        background: #fff;
-        box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
-        border-radius: (5/16rem);
         display: flex;
         flex-direction: column;
-        position: relative;
-        &:last-of-type {
-          margin-bottom: 0;
-        }
-
-        .profile {
-          width: (99/16rem);
-          height: (99/16rem);
-          margin-bottom: (16/16rem);
-          margin-left: 0;
-          border-radius: 50%;
-          display: block;
-          position: absolute;
-          top: (-51/16rem);
-          left: (30/16rem);
-        }
-
-        p {
-          line-height: 1.5em;
-          text-align: left;
-          margin-bottom: (28/16rem);
-        }
-
-        .star-group {
-          margin-top: auto;
-          padding-top: (16/16rem);
-          border-top: 1px solid #e7e7e7;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          flex-wrap: nowrap;
-
-          .name {
-            font-weight: bold;
-            line-height: (24/16rem);
-            text-align: left;
-            color: #1a1a1a;
-            display: block;
-          }
-
-          .desc {
-            font-weight: 400;
-            color: #575757;
-            display: block;
-          }
-
-          img {
-            width: (91/16rem);
-            height: (15/16rem);
-            margin: 0;
-            display: block;
-          }
-        }
-      }
+        align-items: center;
+        gap: clamp(3rem, 6vw, 4rem);
     }
-  }
 
-  /* Tablet */
-  @media only screen and (min-width: 48em) {
-    #reviews {
-      padding-top: (150/16rem);
-      padding-bottom: (50/16rem);
-
-      .container {
-        font-size: ~"min(1.4vw, 1em)";
-        padding: 0;
+    #reviews-567 .cs-content {
+        text-align: center;
+        width: 100%;
         display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        column-gap: (30/16rem);
-      }
+        flex-direction: column;
+        align-items: center;
+    }
 
-      .review {
+    #reviews-567 .cs-title {
+        margin: 0 0 1rem;
+    }
+
+    #reviews-567 .cs-text {
         margin: 0;
-        margin-bottom: (150/16rem);
-
-        &:last-of-type {
-          margin-bottom: (150/16rem);
-        }
-      }
+        max-width: 40rem;
+        color: var(--bodyTextColor);
     }
-  }
 
-  /* Dark Mode */
-  @media only screen and (min-width: 0em) {
-    body.dark-mode {
-      #reviews {
-        .review {
-          background: var(--medium);
-
-          .star-group {
-            .name {
-              color: #fff;
-            }
-
-            .desc {
-              color: #fff;
-              opacity: 0.7;
-            }
-          }
-        }
-      }
+    /* Featured Review */
+    #reviews-567 .cs-featured {
+        width: 100%;
+        padding: clamp(2rem, 6vw, 3rem);
+        background-color: var(--primary);
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
-  }
+
+    #reviews-567 .cs-featured .cs-stars {
+        width: clamp(10.5625rem, 20vw, 11.8125rem);
+        height: auto;
+        margin-bottom: clamp(1.25rem, 3vw, 1.5rem);
+        /* Invert stars to white/dark for contrast on yellow */
+        filter: brightness(0);
+    }
+
+    #reviews-567 .cs-featured .cs-item-text {
+        font-size: clamp(1rem, 2vw, 1.125rem);
+        line-height: 1.6;
+        margin: 0 0 clamp(1.5rem, 4vw, 2rem);
+        color: #1a1a1a;
+        max-width: 50rem;
+    }
+
+    #reviews-567 .cs-featured .cs-name {
+        font-size: clamp(1.125rem, 2vw, 1.25rem);
+        font-weight: 700;
+        color: #1a1a1a;
+        display: block;
+    }
+
+    #reviews-567 .cs-featured .cs-job {
+        font-size: 0.875rem;
+        font-weight: 400;
+        color: #3a3a3a;
+        display: block;
+        margin-top: 0.25rem;
+    }
+
+    /* Review Cards */
+    #reviews-567 .cs-card-group {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: clamp(1rem, 2.5vw, 1.25rem);
+    }
+
+    #reviews-567 .cs-item {
+        list-style: none;
+        width: 100%;
+        padding: clamp(1.5rem, 4vw, 2rem);
+        background-color: var(--surfaceColor);
+        border: 1px solid var(--borderColor);
+        border-radius: 1rem;
+        box-shadow: 0 4px 12px var(--shadowColor);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #reviews-567 .cs-stars {
+        width: clamp(8rem, 15vw, 9rem);
+        height: auto;
+        margin-bottom: 1rem;
+    }
+
+    #reviews-567 .cs-item-text {
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        line-height: 1.6;
+        margin: 0 0 1.5rem;
+        color: var(--bodyTextColor);
+    }
+
+    #reviews-567 .cs-flex-group {
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    #reviews-567 .cs-name {
+        font-size: clamp(1rem, 2vw, 1.125rem);
+        font-weight: 700;
+        color: var(--headerColor);
+        display: block;
+    }
+
+    #reviews-567 .cs-job {
+        font-size: clamp(0.8125rem, 1.5vw, 0.875rem);
+        font-weight: 400;
+        color: var(--bodyTextColor);
+        display: block;
+        margin-top: 0.25rem;
+    }
+
+   /* CTA - Full width to match homepage */
+
+  /* CTA - Floating card style to match homepage */
+#reviews-567 .cs-cta {
+    width: 100%;
+    max-width: 80rem;
+    padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem);
+    background-color: #5B7B5A;;
+    border: none;
+    border-radius: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    /* Add some bottom margin so it floats above footer */
+    margin-bottom: 1em;
+}
+
+#reviews-567 .cs-cta-title {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 900;
+    margin: 0;
+    color: #fff;
+}
+
+#reviews-567 .cs-cta-text {
+    margin: 0;
+    color: #fff;
+    opacity: 0.9;
+}
+
+#reviews-567 .cs-cta .cs-button-solid {
+    color: #1a1a1a;
+    background-color: var(--primary);
+    margin-top: 0.5rem;
+}
+
+#reviews-567 .cs-cta .cs-button-solid:hover {
+    background-color: var(--primaryLight);
+}
+
+    /* Tablet - 768px */
+    @media only screen and (min-width: 48rem) {
+        #reviews-567 .cs-container {
+            max-width: 80rem;
+        }
+
+        #reviews-567 .cs-card-group {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* Desktop - 1024px */
+    @media only screen and (min-width: 64rem) {
+        #reviews-567 .cs-card-group {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
 </style>
