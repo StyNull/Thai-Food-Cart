@@ -14,15 +14,14 @@ import HeroImg from "@assets/images/HomePage/HeroImg.webp"
             <p class="cs-text">
                 Our food cart brings you authentic dishes from Esan—Thailand's legendary region for rich, spicy cuisine. Family recipes, fresh ingredients, bold flavors that don't hold back.
             </p>
-            <a href="" class="cs-button-solid">View Menu</a>
+            <a href="/menu" class="cs-button-solid">View Menu</a>
         </div>
         <picture class="cs-background">
             <!--Mobile Image-->
             <source media="(max-width: 600px)" srcset={HeroImg.src}>
             <!--Tablet and above Image-->
             <source media="(min-width: 601px)" srcset={HeroImg.src}>
-            <img loading="lazy" decoding="async" src={HeroImg.src} alt="icon" width="960" height="857">
-        </picture>
+            <img loading="lazy" decoding="async" src={HeroImg.src} alt="Authentic Thai noodle dish from Esan Thai Food Cart" width="960" height="857">Retry        </picture>
     </div>
 </section>
                                 
@@ -101,7 +100,7 @@ import HeroImg from "@assets/images/HomePage/HeroImg.webp"
     /* 32px - 48px */
     padding: 0 clamp(2rem, 4vw, 3rem);
     background-color: var(--primary);
-    color: var(--bodyTextColorWhite);
+    color: #1a1a1a;
     display: inline-block;
     position: relative;
     z-index: 1;
