@@ -5,6 +5,11 @@
     "children": []
   },
   {
+    "key": "About",
+    "url": "/#about-us/",
+    "children": []
+  },
+  {
     "key": "Menu",
     "url": "/menu",
     "children": []
@@ -15,8 +20,8 @@
     "children": []
   },
   {
-    "key": "About",
-    "url": "/#about-us/",
+    "key": "Reviews",
+    "url": "/reviews/",
     "children": []
   }
 ]
