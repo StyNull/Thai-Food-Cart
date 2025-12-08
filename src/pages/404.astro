@@ -1,0 +1,103 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro"
+---
+
+<BaseLayout
+    title="Page Not Found"
+    description="The page you're looking for doesn't exist."
+>
+    <section id="error-page">
+        <div class="cs-container">
+            <span class="cs-topper">404</span>
+            <h1 class="cs-title">Page Not Found</h1>
+            <p class="cs-text">
+                Sorry, we couldn't find that page. Maybe you're hungry and got lost on the way to our menu?
+            </p>
+            <div class="cs-button-group">
+                <a href="/" class="cs-button-solid">Back to Home</a>
+                <a href="/menu" class="cs-button-outline">View Menu</a>
+            </div>
+        </div>
+    </section>
+</BaseLayout>
+
+<style>
+#error-page {
+    padding: clamp(10rem, 25vw, 14rem) 1rem clamp(5rem, 10vw, 8rem);
+    background-color: var(--backgroundColor);
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+#error-page .cs-container {
+    width: 100%;
+    max-width: 40rem;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+#error-page .cs-topper {
+    font-size: clamp(4rem, 10vw, 6rem);
+    font-weight: 900;
+    color: var(--primary);
+    line-height: 1;
+}
+
+#error-page .cs-title {
+    margin: 0;
+}
+
+#error-page .cs-text {
+    margin: 0 0 1rem;
+    max-width: 35ch;
+    line-height: 1.6;
+}
+
+#error-page .cs-button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+#error-page .cs-button-solid {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    color: #1a1a1a;
+    background-color: var(--primary);
+    padding: 1rem 2rem;
+    border-radius: 14px;
+    transition: background-color 0.2s, transform 0.15s;
+}
+
+#error-page .cs-button-solid:hover {
+    background-color: var(--primaryLight);
+    transform: scale(1.02);
+}
+
+#error-page .cs-button-outline {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    color: #1a1a1a;
+    background-color: transparent;
+    border: 2px solid #1a1a1a;
+    padding: 1rem 2rem;
+    border-radius: 14px;
+    transition: background-color 0.2s, transform 0.15s;
+}
+
+#error-page .cs-button-outline:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: scale(1.02);
+}
+</style>

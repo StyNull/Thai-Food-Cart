@@ -1,40 +1,54 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro"
 
+// Define the menu item type
+interface MenuItem {
+  num?: string;
+  name: string;
+  desc?: string;
+  price: string;
+}
+
+interface MenuSection {
+  id: string;
+  title: string;
+  items: MenuItem[];
+}
+
 // Menu Data
-const appetizers = [
+const appetizers: MenuItem[] = [
   { num: "A1", name: "Eggrolls", price: "6.50" },
   { num: "A2", name: "Salad Rolls", price: "6.50" },
   { num: "A6", name: "Satay", price: "8.95" },
   { num: "A8", name: "Crab Cream Puff", price: "7.50" },
-  { num: "", name: "Potsticker", price: "8.00" }
+  { name: "Potsticker", price: "8.00" }
 ]
 
-const soups = [
+const soups: MenuItem[] = [
   { num: "11", name: "Tom Yum", desc: "Hot & sour soup", price: "14.75" },
   { num: "12", name: "Tom Kha", desc: "Coconut soup", price: "14.75" }
 ]
 
-const salads = [
+const salads: MenuItem[] = [
   { num: "21", name: "Thai Beef Salad", price: "15.95" }
 ]
 
-const noodles = [
-  { num: "", name: "Pad Thai", price: "14.75" },
+const noodles: MenuItem[] = [
+  { name: "Pad Thai", price: "14.75" },
   { num: "61", name: "Pad Kee Mao", desc: "Drunken Noodles", price: "14.75" },
   { num: "62", name: "Pad See Ew", price: "14.75" },
   { num: "63", name: "Pad Woon Sen", desc: "Glass Noodles", price: "14.75" },
   { num: "65", name: "Pad Gai", price: "14.75" },
-  { num: "", name: "Yakisoba", price: "14.75" }
+  { name: "Yakisoba", price: "14.75" }
 ]
 
-const friedRice = [
+const friedRice: MenuItem[] = [
   { num: "67", name: "Fried Rice", price: "14.75" },
   { num: "68", name: "Basil Fried Rice", price: "14.95" },
   { num: "70", name: "Pineapple Fried Rice", price: "14.75" }
 ]
 
-const curries = [
+const curries: MenuItem[] = [
   { num: "40", name: "Red Curry", desc: "Gang Dang", price: "14.75" },
   { num: "41", name: "Green Curry", price: "14.95" },
   { num: "42", name: "Yellow Curry", price: "14.75" },
@@ -44,7 +58,7 @@ const curries = [
   { num: "46", name: "Pumpkin Curry", price: "14.75" }
 ]
 
-const stirFry = [
+const stirFry: MenuItem[] = [
   { num: "27", name: "Pad Prik Khing", desc: "Red curry paste stir fry", price: "14.75" },
   { num: "29", name: "Pad Mmoung", price: "14.75" },
   { num: "30", name: "Pad Priewwan", desc: "Sweet & sour", price: "14.75" },
@@ -57,11 +71,11 @@ const stirFry = [
   { num: "38", name: "Pad Gaproa", desc: "Holy basil", price: "14.75" }
 ]
 
-const specialty = [
+const specialty: MenuItem[] = [
   { num: "58", name: "Thai Chicken BBQ", price: "16.00" }
 ]
 
-const drinks = [
+const drinks: MenuItem[] = [
   { name: "Thai Tea", price: "4.00" },
   { name: "Thai Coffee", price: "4.00" },
   { name: "Coconut Juice", price: "3.95" },
@@ -70,7 +84,7 @@ const drinks = [
   { name: "Water", price: "2.50" }
 ]
 
-const sides = [
+const sides: MenuItem[] = [
   { name: "Rice", price: "3.00" },
   { name: "Extra Chicken", price: "2.25" },
   { name: "Extra Shrimp", price: "3.50" },
@@ -80,7 +94,7 @@ const sides = [
   { name: "Chili Sauce", price: "5.00" }
 ]
 
-const menuSections = [
+const menuSections: MenuSection[] = [
   { id: "appetizers", title: "Appetizers", items: appetizers },
   { id: "soups", title: "Soups", items: soups },
   { id: "salads", title: "Salads", items: salads },
